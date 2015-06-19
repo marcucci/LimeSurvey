@@ -1,5 +1,7 @@
 {
   "require" : {
-        "php" : ">=5.3"        
+        "php" : ">=5.3",
+        "ext-pdo": "*",
+        "ext-mbstring": "*"
   }
 }
