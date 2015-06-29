@@ -1,7 +1,7 @@
 ---
 applications:
 - name: LimeSurvey
-  buildpack: https://github.com/cloudfoundry/php-buildpack.git
+  buildpack: https://github.com/cloudfoundry/php-buildpack.git#v3.2.2
   services:
     ${name}-db:
       type: mysql
