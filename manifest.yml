@@ -7,3 +7,5 @@ applications:
       type: mysql
     ${name}-fs:
       type: filesystem
+  mem: 256
+  disk: 2048
