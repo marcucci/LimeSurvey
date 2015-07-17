@@ -235,6 +235,16 @@ class InstallerController extends CController {
         $aData['classesForStep'] = array('off','off','off','on','off','off');
         $aData['progressValue'] = 40;
         $aData['model'] = $oModel = new InstallerConfigForm;
+
+        if (isset($_SERVER['DATABASE_URL'])) {
+          // Check to see if SERVER had DB information
+          $url_parts = parse_url($_SERVER['DATABASE_URL']);
+          $oModel->dbname = substr( $url_parts{'path'}, 1 );
+          $oModel->dblocation = $url_parts{'host'};
+          $oModel->dbuser = $url_parts{'user'};
+          $oModel->dbpwd = $url_parts{'pass'};
+        }
+
         if (isset(Yii::app()->session['populateerror']))
         {
             $oModel->addError('dblocation',Yii::app()->session['populateerror']);
