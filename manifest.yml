@@ -1,11 +1,19 @@
 ---
 applications:
 - name: LimeSurvey
+  #framework: php
   buildpack: https://github.com/cloudfoundry/php-buildpack.git#v3.2.2
   services:
     ${name}-db:
       type: mysql
     ${name}-fs:
       type: filesystem
-  mem: 256
-  disk: 2048
+  mem: 128
+  disk: 1024
+  stackato:
+    #env:
+    #  http_proxy: http://proxy.company.com:8080
+    #  https_proxy: https://proxy.company.com:8080
+    hooks:
+      pre-running:
+      - sh htdocs/pre-running.sh
